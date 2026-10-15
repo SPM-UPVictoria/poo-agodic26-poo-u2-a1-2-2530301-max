@@ -23,6 +23,7 @@ public class SuscripcionStreamingFamiliar extends SuscripcionStreaming {
         // Si perfilesAdicionales > 1, solo se cobran (perfilesAdicionales - 1) * costoPorPerfilAdicional.
         // Si perfilesAdicionales <= 1, solo se cobra la tarifaBase.
         // TODO [Campaña Super Familiar]: Bonificar 2 perfiles extra en lugar de 1 (cobrar solo a partir del 3er perfil).
-        return 0.0;
+        int perfilesCobrables = (perfilesAdicionales > 0) ? (perfilesAdicionales - 1) : 0;
+        return tarifaBase + (perfilesCobrables * costoPorPerfilAdicional);
     }
 }
